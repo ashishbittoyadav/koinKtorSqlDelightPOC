@@ -1,0 +1,45 @@
+CREATE TABLE UserEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    username TEXT NOT NULL,
+    email TEXT NOT NULL,
+
+    street TEXT NOT NULL,
+    suite TEXT NOT NULL,
+    city TEXT NOT NULL,
+    zipcode TEXT NOT NULL,
+
+    lat TEXT NOT NULL,
+    lng TEXT NOT NULL,
+
+    phone TEXT NOT NULL,
+    website TEXT NOT NULL,
+
+    companyName TEXT NOT NULL,
+    companyCatchPhrase TEXT NOT NULL,
+    companyBs TEXT NOT NULL,
+
+    role TEXT NOT NULL,
+    status TEXT NOT NULL
+);
+
+selectAllUsers:
+SELECT * FROM UserEntity;
+
+selectUsersByStatus:
+SELECT * FROM UserEntity
+WHERE status = ?;
+
+insertUser:
+INSERT OR REPLACE INTO UserEntity(
+    id, name, username, email,
+    street, suite, city, zipcode,
+    lat, lng,
+    phone, website,
+    companyName, companyCatchPhrase, companyBs,
+    role, status
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteAllUsers:
+DELETE FROM UserEntity;
+
